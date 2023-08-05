@@ -79,7 +79,7 @@ Host
 Any server which we want to monitor
 
 Service
-Any thing like cpu utilization...usage..so on
+Any thing like cpu utilization...usage..so on metric
 
 user
 The one who can access the web interface
@@ -177,7 +177,7 @@ hard ok -> soft critical (tries 3 attempts) -> hard critical
 
 
 
-
+//
 
 
 
