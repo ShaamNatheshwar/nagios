@@ -179,8 +179,8 @@ hard ok -> soft critical (tries 3 attempts) -> hard critical
 
 //
 
-
-
-
-
-
+These are centos/linux commands
+sestatus - to know the status of the selinux whether the protection is disabled or not
+sudo yum update -y - updates everything 
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config - using sed to change the selinux file
+setenforce 0 changes the activve -> permissive 
