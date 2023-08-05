@@ -24,10 +24,16 @@ we will go for workload.. availability and faults and errors
 Incase of any resources.. we go for memory utilization so on
 
 
+
+
+
+//
+
 4. what is nagios core
 It is a open source enterprise monitoring tool. Through which we can monitor things ranging from OS to temperature.
 This is possible because of the plugins inside nagios
-Nagios server can be installed only on to the LINUX os. Whereas we can monitor windows and others using a nagios agent
+Nagios server (The place where all the data and status of the device montior gets stored) can be installed only on to the LINUX os. 
+Whereas we can monitor windows and others using a nagios agent
 
 5. what are feature os nagios core
 monitoring host resources like cpu usage, memory, so on
@@ -43,6 +49,132 @@ helps in solving the problem before it goes into downtime
 helps in solving root problem of the cause
 helps in solving problems automatically
 helps to upgrade any service if its going to get deprecated
+
+see nagios core is more like a react.js its simply an engine ... it need lot of components to run a thing
+whereas nagios xi is more like angular. It simply has many things attached to it
+
+
+7. nagios architecture
+  nagios server
+          |
+  nagios process scheduler
+          |
+      Plugins (check_nrp, check_snmp)
+          
+
+say if we wanna monitor local windows machine what it does is ... we will install nagios agent onto the local windows machine...so these nagios plugins call
+plugins to execute...The plugins from nagios grab the status of the local windows device and the result will be sent back to the nagios...The nagios process scheduler will
+check the status of the device incase if there is any status change what it does is it will notify us...This information will be further stored on to the .rrd database
+
+
+
+//
+
+8.Terminology
+
+Plugins
+These are external programs that consist of scripts that can be executed...helps in getting the status of the host device
+
+Host
+Any server which we want to monitor
+
+Service
+Any thing like cpu utilization...usage..so on
+
+user
+The one who can access the web interface
+
+contact
+If there is any issue...The email or notifications will be sent to them
+
+contact group
+Say there is multiple contact for same service (lx users) we will group them into one so that everyone receives same alerts
+
+resolution team
+Group of IT personalle who is responsible for finding, diagnosing and resolving the alert
+
+Basically both are for managing alert and notification but they slightly differ onto there purpose
+
+acknowledgement
+Say if there has been an alert any induvidual can acknowledge and letting others know that alert is being worked on.
+
+Downtime
+say there is any system updation or any service related upgradation we well go for downtime
+
+latency
+The difference between schedule to runtime and actual runtime is called as latency
+
+state - two state soft and hard basically to avoid false positive 
+
+agents
+The services that must be placed onto a client that received the status of the device...We saw that in our old example
+
+host group
+grouping the host in to groups on the basis of say place (US servers so on)
+
+service group
+we can group multiple groups together based on similarity
+
+
+
+9.checks in nagios
+we have 2 kinds of checks
+
+It depends on the network connectivity between host and agent
+
+active check
+say we want cpu utilization from the host
+
+nagios server 
+      |
+check command
+      |
+cpu utilization plugin
+
+
+see basically nagios server has check command when it executes plugins for cpu utilization on the agent so that we will be with cpu utilzation status
+This is called active check
+
+say I am using a external application like a chrome when its running the status of the chrome every certain time will be stored in external command file...then 
+external command logic will grab that and provides to check logic this is then submitted to nagios server for the processing
+
+This is called passive checks
+
+
+10. Hard and soft states
+Say there is an status critical and there is a latency of 5 minutes so despite there is no error what nagios does is its simply ends error again and again
+This is a scenario for false positive alerts
+
+if the status change from previos state to current state we call it state change
+
+say there is a server
+10:0:0:5
+the check is done but shows ok its in hard state now, also next state change is 10:0:5:5
+
+but sadly its down by 10:0:3:5
+
+nagios doesnt know its down coz it hasn't checked anything
+
+by 10:0:5:5
+when nagios checks the status is critical also the state is now soft now it goes for retry check interval with attempt one the retry check_interval : 1 min attempt 1/3
+
+by 10:0:6:5
+status - critical
+state - soft
+attempt - 2/3
+
+by 10:0:7:5
+status - critical
+state - hard since it reached maximum retry amount it changes to hard state and notification will be sent to 
+attempt - 3/3
+
+by 10:0:10:5 = There will be next check and continues like 10:0:15:5
+
+but based on configuration another notification will be sent in 120 mins or whatever time we want
+
+so it 
+hard ok -> soft critical (tries 3 attempts) -> hard critical
+
 
 
 
