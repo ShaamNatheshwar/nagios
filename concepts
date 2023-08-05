@@ -1,0 +1,54 @@
+1. What is monitoring
+
+The process of obeserving and checking the quality and progress of something over a period of time under a systematic review
+imagine like watching a bitcoin graph for 1 hr saying how its rising...its rising percent so on.
+
+2.why do we monitor
+To better serve our business
+say we have 5 servers out which 4 performs well one doesnt so we can find and sort the things so we will have good outcome right
+
+problem detection
+before running into downtime we can find what is the issue
+Trouble shoot active problems
+Through monitoring we can find where the exact active issue is and then sort it
+Reporting and Observation
+Help us to know more about memory utilization and cpu utilization
+
+
+3. what to monitor
+see cannot pretty much monitor everything and getting millions of alerts
+it depends on business process
+say if we are working with machines we have to monitor those
+Incase of servers
+we will go for workload.. availability and faults and errors
+Incase of any resources.. we go for memory utilization so on
+
+
+4. what is nagios core
+It is a open source enterprise monitoring tool. Through which we can monitor things ranging from OS to temperature.
+This is possible because of the plugins inside nagios
+Nagios server can be installed only on to the LINUX os. Whereas we can monitor windows and others using a nagios agent
+
+5. what are feature os nagios core
+monitoring host resources like cpu usage, memory, so on
+It has an active community with 5843 plugins in 458 categories
+It can do parralel checking that is many checks at single time
+It also helps in finding hierarchy. Which device or service is dependent on which one
+helps in send Email and notification
+
+
+6. Why we need nagios
+helps in finding problems in all types of network
+helps in solving the problem before it goes into downtime
+helps in solving root problem of the cause
+helps in solving problems automatically
+helps to upgrade any service if its going to get deprecated
+
+
+
+
+
+
+
+
+
