@@ -183,4 +183,12 @@ These are centos/linux commands
 sestatus - to know the status of the selinux whether the protection is disabled or not
 sudo yum update -y - updates everything 
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config - using sed to change the selinux file
-setenforce 0 changes the activve -> permissive 
+setenforce 0 changes the activve -> permissive
+
+systemctl stop firewalld - to stop firewall
+systemctl mask firewalld - to mask firewall
+systemctl unmask firewalld - to unmask firewall
+systemctl start firewalld - to start firewall
+
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
