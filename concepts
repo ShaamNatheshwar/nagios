@@ -304,6 +304,31 @@ create required directories /usr/local/nagios and add to cfg...this reduces the 
 for graphs and any other visualization tool what we can do is we can install necessary things so that we dont overcome any error
 
 
+//
+UNDERSTANDING TEMPLATE
+
+define host{
+    name         linux-shaam (The name of the host which we specify)
+    check_period    24*7 (how we wanna monitor this host)
+    check_interval   5 (for how many minutes once you wanna check this host)
+    retry_interval   1 (incase if the host is down for how many minutes once you wanna check this host)
+    max_check_attempts  10 (what is the maximum amount of time you should check this host before sending notification)
+    check_command     check_host_alive (what we are monitoring this for ...This name should be there in check_command.cfg)
+    notification_interval  120 (at what time you want to get notification after first notfication)
+    notification_options   d,u,r(down, unknown, recovered)
+    contact_group    LB_Linux (who wanna receive notification when host is down)
+    icon_image, status  found in logos just gives us what image should be visible say linux windows for ui purpose 
+    action_url      shows graph (need to install pnp4nachios) /pnp4nagios/index.php/graph?host=$HOSTNAME$
+    notification_enabled   1 (yes it should send notification)
+    flap_detection_enable  1 (whether it goes up and down simultaneously)
+    process_perf_data     1 (whether we want process performance data)
+    event_handler_enabled  1 
+    retain_status_information  1
+    retain_nonstatus_information 1
+    notification_period   24*7
+    register            0
+
+}
 
 
 
