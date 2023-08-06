@@ -192,3 +192,137 @@ systemctl start firewalld - to start firewall
 
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
+
+
+
+/* There goes important necessary download commands for this */
+
+
+
+
+
+//
+user dashboard walkthrough
+
+how to start a dashboard <ipaddress>/nagios
+
+
+DAEMON running says that what is the ID of the nagios instance we running
+
+shows current installed version
+The date when it got last updated
+
+
+Tactical overview
+where you can see everything onto a single page
+like host health and its progress and stuffs
+
+we can click on the induvidual status to know how many services whether they are up or down so on
+
+we can even get the any host or services if they are outraged
+
+Monitoring features help us to know whether we are enabling notifications or not for a particular service even we can 
+find active passive as well as event monitoring checks can be easily found out
+
+
+Map
+
+its helping us  in visualization of host and services connected to us
+using this what we can do is there is a hamburger menu on top of it to align in whatever way we want it
+
+Host
+This gives the list of all the host that are under monitoring
+
+service
+This gives the list of all services under monitoring
+
+Host group
+This gives the list of all host group under monitoring
+
+Grid
+Gives the grid view of the monitored host / services based on our wishes
+
+Availability report
+say if we want to the percent of up time in past 8 days what we can do is we can get those things from availability report
+
+Trends
+This gives a visual representation of group like the total time when it was up and total time when it was down so on
+
+Alerts
+This gives us what all are the available alerts so on
+everything related to alerts and notification or more or less same 
+
+
+comments
+They are used for acknowledging whether we are running it or working on the host/service
+we can go to comments
+under there will be an option to give a comment where we can simply give it...This comment will be visible to anyone who has access
+
+downtime
+For scheduling downtime we should pick up a host then at the right there will be an option for downtime
+
+process info
+This is totally related to nagios core...whether notification enabled are we able to see things and stuffs so on
+
+performance info 
+This is related to nagios how many active checks are going on at what time checks are done so on everything like thta
+
+scheduling queue
+
+At what time whatt is going to checked so on
+
+configuration
+
+whether things are enabled or disabled so and so
+
+
+
+
+//
+
+Post installation tasks
+
+see say if directly start adding host/ services...we may overcome some issue with format of nagios...inorder to avoid those issues
+There are quite a lot of postinstallation task
+
+create contact and contact groups-
+Though we can add it later its better to create contact and contact group
+
+creat HOST
+if we create on Host group ... Jst using that same template we can create other host too
+
+create SERVICES
+lly for services
+
+plugins
+at first there will be only set of plugins incase if we wanna add kubernetes monitoring so on we have to download the specific plugins
+
+create and define the time periods
+
+create required directories /usr/local/nagios and add to cfg...this reduces the error from creating a file somewhere and moving it to here
+
+for graphs and any other visualization tool what we can do is we can install necessary things so that we dont overcome any error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
